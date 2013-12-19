@@ -40,7 +40,8 @@ module.exports = function(config) {
 
 ## Output data
 
-```
+
+```js
 {
   "browsers": {
     "<browser.id>": {
