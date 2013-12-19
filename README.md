@@ -1,5 +1,4 @@
-karma-json-reporter
-===================
+# karma-json-reporter [![NPM version](https://badge.fury.io/js/karma-json-reporter.png)](http://badge.fury.io/js/karma-json-reporter)
 
 > JSON reporter for Karma
 
