@@ -12,7 +12,7 @@ The easiest way is to keep `karma-json-reporter` as a devDependency in your `pac
 {
   "devDependencies": {
     "karma": "~0.10",
-    "karma-json-reporter": "~0.1"
+    "karma-json-reporter": "~1.0"
   }
 }
 ```
@@ -44,7 +44,7 @@ module.exports = function(config) {
 ```js
 {
   "browsers": { // Collection of used browser
-    "<browser.id>": { 
+    "<browser.id>": {
       "id": "<same browser.id>",
       "fullName": String,
       "name": String,
@@ -63,7 +63,7 @@ module.exports = function(config) {
     }
   },
   "result": { // Collection result per browser
-    "<browser.id>": [ 
+    "<browser.id>": [
       {
         "id": Number, // spec.id
         "description": String, // spec.description
@@ -75,7 +75,7 @@ module.exports = function(config) {
       },
     ]
   },
-  "summary": { 
+  "summary": {
     "success": Number, // total number of success
     "failed": Number, // total number of fail
     "error": Boolean,
