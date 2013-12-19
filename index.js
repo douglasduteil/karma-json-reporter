@@ -2,29 +2,26 @@
 
 'use strict';
 
+//
 var JSONReporter = function (baseReporterDecorator) {
   baseReporterDecorator(this);
 
-  var onSpecCompleteOriginal = this.onSpecComplete;
+  var history = {
+    browsers : {},
+    result : {},
+    summary : {}
+  };
 
   this.onSpecComplete = function(browser, result) {
-    var status;
+    history.result[browser.id] = history.result[browser.id] || [];
+    history.result[browser.id].push(result);
 
-    if (result.success) {
-      status = 'SUCCESS';
-    }
-    else if (result.skipped) {
-      status = 'SKIPPED';
-    }
-    else {
-      status = 'FAILURE';
-    }
+    history.browsers[browser.id] = history.browsers[browser.id] || browser;
+  };
 
-    process.stdout.write(JSON.stringify([status, {
-      description : result.suite.join(' ') + ' ' + result.description
-    }]));
-
-    onSpecCompleteOriginal.call(this, browser, result);
+  this.onRunComplete = function(browser, result) {
+    history.summary = result;
+    process.stdout.write(JSON.stringify(history));
   };
 };
 

@@ -1,4 +1,4 @@
-karma-jsonE-reporter
+karma-json-reporter
 ===================
 
 > JSON reporter for Karma
@@ -45,5 +45,6 @@ module.exports = function(config) {
 ["SUCCESS",{"description":"sqrt should compute the square root of 4 as 2"}]
 ["SUCCESS",{"description":"sqrt should compute the square root of 4 as 2"}]
 ["SUCCESS",{"description":"sqrt should compute the square root of 4 as 2"}]
+["FAILURE",{"description":"sqrt should compute the square root of 4 as 2"}]
 TOTAL: 3 SUCCESS
 ```
