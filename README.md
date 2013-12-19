@@ -43,8 +43,8 @@ module.exports = function(config) {
 
 ```js
 {
-  "browsers": {
-    "<browser.id>": {
+  "browsers": { // Collection of used browser
+    "<browser.id>": { 
       "id": "<same browser.id>",
       "fullName": String,
       "name": String,
@@ -62,8 +62,8 @@ module.exports = function(config) {
       "launchId": Number
     }
   },
-  "result": {
-    "<browser.id>": [
+  "result": { // Collection result per browser
+    "<browser.id>": [ 
       {
         "id": Number, // spec.id
         "description": String, // spec.description
@@ -75,7 +75,7 @@ module.exports = function(config) {
       },
     ]
   },
-  "summary": {
+  "summary": { 
     "success": Number, // total number of success
     "failed": Number, // total number of fail
     "error": Boolean,
