@@ -3,7 +3,6 @@ karma-json-reporter
 
 > JSON reporter for Karma
 
-**WORK IN PROGRESS**
 
 ## Installation
 
@@ -39,12 +38,50 @@ module.exports = function(config) {
 };
 ```
 
-## Output exemple
+## Output data
 
 ```
-["SUCCESS",{"description":"sqrt should compute the square root of 4 as 2"}]
-["SUCCESS",{"description":"sqrt should compute the square root of 4 as 2"}]
-["SUCCESS",{"description":"sqrt should compute the square root of 4 as 2"}]
-["FAILURE",{"description":"sqrt should compute the square root of 4 as 2"}]
-TOTAL: 3 SUCCESS
+{
+  "browsers": {
+    "<browser.id>": {
+      "id": "<same browser.id>",
+      "fullName": String,
+      "name": String,
+      "state": Number,
+      "lastResult": {
+        "success":Number,
+        "failed": Number,
+        "skipped": Number,
+        "total": Number,
+        "totalTime": Number,
+        "netTime":Number,
+        "error": Boolean,
+        "disconnected": Boolean
+      },
+      "launchId": Number
+    }
+  },
+  "result": {
+    "<browser.id>": [
+      {
+        "id": Number, // spec.id
+        "description": String, // spec.description
+        "suite": Array.of(String), // spec.suite
+        "success": Boolean,
+        "skipped": Boolean,
+        "time": Number,
+        "log": Array.of(String), // spec.log
+      },
+    ]
+  },
+  "summary": {
+    "success": Number, // total number of success
+    "failed": Number, // total number of fail
+    "error": Boolean,
+    "disconnected": Boolean,
+    "exitCode": Number
+  }
+}
 ```
+
+[Output exemple](https://gist.github.com/douglasduteil/8039664)
