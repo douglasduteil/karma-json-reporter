@@ -22,6 +22,7 @@ var JSONReporter = function (baseReporterDecorator) {
   this.onRunComplete = function(browser, result) {
     history.summary = result;
     process.stdout.write(JSON.stringify(history));
+    history.result = {};
   };
 };
 
