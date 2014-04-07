@@ -1,6 +1,6 @@
 {
   "name": "karma-json-reporter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "JSON reporter for Karma",
   "main": "index.js",
   "scripts": {
