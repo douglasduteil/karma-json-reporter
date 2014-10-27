@@ -1,9 +1,12 @@
 /* jshint node: true */
 
 'use strict';
+var path = require('path');
+var fs = require('fs');
 
 //
-var JSONReporter = function (baseReporterDecorator) {
+var JSONReporter = function (baseReporterDecorator, config, helper) {
+
   baseReporterDecorator(this);
 
   var history = {
@@ -11,6 +14,9 @@ var JSONReporter = function (baseReporterDecorator) {
     result : {},
     summary : {}
   };
+
+  var reporterConfig = config.jsonReporter || {};
+  var outputFile = (reporterConfig.outputFile) ? helper.normalizeWinPath(path.resolve(config.basePath, reporterConfig.outputFile )) : null;
 
   this.onSpecComplete = function(browser, result) {
     history.result[browser.id] = history.result[browser.id] || [];
@@ -21,12 +27,23 @@ var JSONReporter = function (baseReporterDecorator) {
 
   this.onRunComplete = function(browser, result) {
     history.summary = result;
-    process.stdout.write(JSON.stringify(history));
+    if(reporterConfig.stdout) process.stdout.write(JSON.stringify(history));
+    if(outputFile) {
+      helper.mkdirIfNotExists(path.dirname(outputFile), function() {
+      fs.writeFile(outputFile, JSON.stringify(history), function(err) {
+        if (err) {
+          log.warn('Cannot write JSON\n\t' + err.message);
+        } else {
+          log.debug('JSON written to "%s".', outputFile);
+        }
+      });
+    });
+    }
     history.result = {};
   };
 };
 
-JSONReporter.$inject = ['baseReporterDecorator'];
+JSONReporter.$inject = ['baseReporterDecorator','config','helper'];
 
 // PUBLISH DI MODULE
 module.exports = {
