@@ -32,6 +32,10 @@ module.exports = function(config) {
 
     // json reporter directly output stringified json
     reporters: ['json'],
+    jsonReporter: {
+      stdout: true,
+      outputFile: 'results.json' // defaults to none
+    }
 
   // ...
 };
