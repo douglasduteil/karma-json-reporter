@@ -11,7 +11,7 @@ The easiest way is to keep `karma-json-reporter` as a devDependency in your `pac
 {
   "devDependencies": {
     "karma": "~0.10",
-    "karma-json-reporter": "~1.0"
+    "karma-json-reporter": "~1.1"
   }
 }
 ```
