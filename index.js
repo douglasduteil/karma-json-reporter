@@ -5,8 +5,9 @@ var path = require('path');
 var fs = require('fs');
 
 //
-var JSONReporter = function (baseReporterDecorator, config, helper) {
+var JSONReporter = function (baseReporterDecorator, config, helper, logger) {
 
+  var log = logger.create('karma-json-reporter');
   baseReporterDecorator(this);
 
   var history = {
@@ -16,7 +17,7 @@ var JSONReporter = function (baseReporterDecorator, config, helper) {
   };
 
   var reporterConfig = config.jsonReporter || {};
-  var stdout = reporterConfig.stdout || true;
+  var stdout = typeof reporterConfig.stdout !== 'undefined' ? reporterConfig.stdout : true;
   var outputFile = (reporterConfig.outputFile) ? helper.normalizeWinPath(path.resolve(config.basePath, reporterConfig.outputFile )) : null;
 
   this.onSpecComplete = function(browser, result) {
@@ -44,7 +45,7 @@ var JSONReporter = function (baseReporterDecorator, config, helper) {
   };
 };
 
-JSONReporter.$inject = ['baseReporterDecorator','config','helper'];
+JSONReporter.$inject = ['baseReporterDecorator','config','helper','logger'];
 
 // PUBLISH DI MODULE
 module.exports = {
