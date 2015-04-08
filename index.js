@@ -37,10 +37,10 @@ var JSONReporter = function (baseReporterDecorator, config, helper) {
         } else {
           console.log('JSON written to "%s".', outputFile);
         }
+        history.result = {};
       });
     });
     }
-    history.result = {};
   };
 };
 
