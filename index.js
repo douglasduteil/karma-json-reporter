@@ -16,7 +16,7 @@ var JSONReporter = function (baseReporterDecorator, config, helper) {
   };
 
   var reporterConfig = config.jsonReporter || {};
-  var stdout = reporterConfig.stdout || true;
+  var stdout = (typeof reporterConfig.stdout === "boolean" ? reporterConfig.stdout : true);
   var outputFile = (reporterConfig.outputFile) ? helper.normalizeWinPath(path.resolve(config.basePath, reporterConfig.outputFile )) : null;
 
   this.onSpecComplete = function(browser, result) {
