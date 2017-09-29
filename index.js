@@ -45,10 +45,10 @@ var JSONReporter = function (baseReporterDecorator, config, helper, logger) {
                     }
                 });
             });
+        } else {
+          history.result = {};
         }
-
-        history.result = {};
-    };
+    }
 };
 
 JSONReporter.$inject = ['baseReporterDecorator', 'config', 'helper', 'logger'];

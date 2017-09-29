@@ -88,4 +88,4 @@ module.exports = function(config) {
 }
 ```
 
-[Output exemple](https://gist.github.com/douglasduteil/8039664)
+[Output example](https://gist.github.com/douglasduteil/8039664)
