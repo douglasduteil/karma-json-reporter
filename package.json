@@ -4,17 +4,14 @@
   "description": "JSON reporter for Karma",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/douglasduteil/karma-json-reporter.git"
   },
-  "keywords": [
-    "karma-plugin",
-    "reporter",
-    "json"
-  ],
+  "keywords": ["karma-plugin", "reporter", "json"],
   "peerDependencies": {
     "karma": ">=0.9"
   },
@@ -23,5 +20,13 @@
   "bugs": {
     "url": "https://github.com/douglasduteil/karma-json-reporter/issues"
   },
-  "homepage": "https://github.com/douglasduteil/karma-json-reporter"
+  "homepage": "https://github.com/douglasduteil/karma-json-reporter",
+  "devDependencies": {
+    "eslint": "^4.7.2",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.2.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1"
+  }
 }
