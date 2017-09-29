@@ -17,6 +17,7 @@ before_install:
   - source ~/.bashrc
 
 before_script:
+  - export KARMA_SINGLE_RUN=true
   - 'if [ "$KARMA_VERSION" ]; then yarn add karma@^$KARMA_VERSION; fi'
 
 script:
