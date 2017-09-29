@@ -4,6 +4,8 @@ language: node_js
 sudo: false
 git:
   depth: 5
+addons:
+  chrome: stable
 
 node_js: stable
 
