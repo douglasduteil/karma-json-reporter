@@ -1,4 +1,7 @@
-# karma-json-reporter [![NPM version](https://badge.fury.io/js/karma-json-reporter.png)](http://badge.fury.io/js/karma-json-reporter)
+# karma-json-reporter 
+
+ [![npm](https://img.shields.io/npm/v/karma-json-reporter.svg)](https://www.npmjs.com/package/karma-spec-json-reporter)
+ [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 > JSON reporter for Karma
 

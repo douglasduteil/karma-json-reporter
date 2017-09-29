@@ -16,8 +16,13 @@ var JSONReporter = function (baseReporterDecorator, config, helper, logger) {
   }
 
   var reporterConfig = config.jsonReporter || {}
-  var stdout = typeof reporterConfig.stdout !== 'undefined' ? reporterConfig.stdout : true
-  var outputFile = (reporterConfig.outputFile) ? helper.normalizeWinPath(path.resolve(config.basePath, reporterConfig.outputFile)) : null
+  var stdout =
+    typeof reporterConfig.stdout !== 'undefined' ? reporterConfig.stdout : true
+  var outputFile = reporterConfig.outputFile
+    ? helper.normalizeWinPath(
+      path.resolve(config.basePath, reporterConfig.outputFile)
+    )
+    : null
 
   this.onSpecComplete = function (browser, result) {
     history.result[browser.id] = history.result[browser.id] || []
