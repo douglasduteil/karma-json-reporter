@@ -15,9 +15,9 @@ cache:
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
   - source ~/.bashrc
+  - export KARMA_SINGLE_RUN=true
 
 before_script:
-  - export KARMA_SINGLE_RUN=true
   - 'if [ "$KARMA_VERSION" ]; then yarn add karma@^$KARMA_VERSION; fi'
 
 script:
@@ -31,6 +31,8 @@ jobs:
       env: KARMA_VERSION=0.13
     -
       env: KARMA_VERSION=0.12
+      before_script:
+      - yarn add karma@^$KARMA_VERSION karma-chrome-launcher@0.2.0 karma-mocha@0.2.0;
     -
       env: KARMA_VERSION=0.11
     -
