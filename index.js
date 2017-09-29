@@ -38,10 +38,13 @@ var JSONReporter = function (baseReporterDecorator, config, helper, logger) {
         } else {
           log.debug('JSON written to "%s".', outputFile);
         }
+        history.result = {};
       });
     });
+    }else {
+      history.result = {};
     }
-    history.result = {};
+    
   };
 };
 
