@@ -31,11 +31,25 @@ jobs:
       env: KARMA_VERSION=0.13
     -
       env: KARMA_VERSION=0.12
+      node_js: 6
       before_script:
+      - yarn remove karma karma-chrome-launcher karma-mocha
       - yarn add karma@^$KARMA_VERSION karma-chrome-launcher@0.2.0 karma-mocha@0.2.0;
     -
+      node_js: 6
       env: KARMA_VERSION=0.11
+      before_script:
+      - yarn remove karma karma-chrome-launcher karma-mocha
+      - yarn add karma@^$KARMA_VERSION karma-chrome-launcher@0.2.0 karma-mocha@0.2.0;
     -
+      node_js: 4
       env: KARMA_VERSION=0.10
+      before_script:
+      - yarn remove karma karma-chrome-launcher karma-mocha
+      - yarn add karma@^$KARMA_VERSION karma-chrome-launcher@0.1.0 karma-mocha@0.1.0;
     -
+      node_js: 4
       env: KARMA_VERSION=0.9
+      before_script:
+      - yarn remove karma karma-chrome-launcher karma-mocha
+      - yarn add karma@^$KARMA_VERSION karma-chrome-launcher@0.0.2 karma-mocha@0.1.0;
