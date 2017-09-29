@@ -1,0 +1,34 @@
+---
+dist: trusty
+language: node_js
+sudo: false
+git:
+  depth: 5
+
+node_js: stable
+
+cache:
+  yarn: true
+
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - source ~/.bashrc
+
+
+before_script:
+  - 'if [ "$KARMA_VERSION" ]; then yarn add karma@^$KARMA_VERSION; fi'
+
+jobs:
+  include:
+    - stage: Latest (^1.x)
+
+    - stage: Other Karma versions
+      env: KARMA_VERSION=0.13
+    -
+      env: KARMA_VERSION=0.12
+    -
+      env: KARMA_VERSION=0.11
+    -
+      env: KARMA_VERSION=0.10
+    -
+      env: KARMA_VERSION=0.9
