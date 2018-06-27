@@ -12,21 +12,28 @@
     "type": "git",
     "url": "git://github.com/douglasduteil/karma-json-reporter.git"
   },
-  "keywords": ["karma-plugin", "reporter", "json"],
+  "keywords": [
+    "karma-plugin",
+    "reporter",
+    "json"
+  ],
   "peerDependencies": {
     "karma": ">=0.9"
   },
+  "dependencies": {
+    "json-cycle": "^1.3.0"
+  },
   "devDependencies": {
     "chai": "^4.1.2",
+    "eslint": "^4.7.2",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.2.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
-    "eslint": "^4.7.2",
+    "karma": ">=0.9",
     "karma-chrome-launcher": "^2.2.0",
     "karma-mocha": "^1.3.0",
-    "karma": ">=0.9",
     "mocha": "^3.5.3"
   },
   "author": "Douglas Duteil",

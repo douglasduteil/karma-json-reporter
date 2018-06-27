@@ -3,6 +3,7 @@
 'use strict'
 var path = require('path')
 var fs = require('fs')
+var stringify = require('json-cycle').stringify
 
 //
 var JSONReporter = function (baseReporterDecorator, config, helper, logger) {
@@ -33,7 +34,7 @@ var JSONReporter = function (baseReporterDecorator, config, helper, logger) {
 
   this.onRunComplete = function (browser, result) {
     history.summary = result
-    var json = JSON.stringify(history, undefined, '\t')
+    var json = stringify(history, undefined, '\t')
 
     if (stdout) {
       process.stdout.write(json)
